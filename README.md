@@ -2,19 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <style>
-    .center {
-      text-align: center;
-    }
-  </style>
 </head>
 <body>
   <img src="./docs/banner.png"></img>
   <h1>🛸 ONTBO - Cognitive Context API for AI Agents</h1>
-  <p class="center"><strong>Make AI understand.</strong></p>
-  <p class="center">👉 Cognitive Context API for your AI Agents</p>
-  <p class="center">🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
-  <p class="center"><em>Doc : <a href="./docs/datasheet.pdf">here</a></em></p>
+  <p style="text-align: center;"><strong>Make AI understand.</strong></p>
+  <p style="text-align: center;">👉 Cognitive Context API for your AI Agents</p>
+  <p style="text-align: center;">🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
+  <p style="text-align: center;"><em>Doc : <a href="./docs/datasheet.pdf">here</a></em></p>
 
   <div>
     <h2>⚡ Research Insights - Why you Win ?</h2>
@@ -59,7 +54,7 @@
 
   <div>
     <h2>🚀 What is ONTBO?</h2>
-    <p class="center">🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
+    <p style="text-align: center;">🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
     <p>ONTBO is an <b>API that normalizes and structures user historic data</b> into a dynamic, reasoning-ready context layer to improve AI agent responses.<br>
     From <b>passive tools</b> to <b>proactive partners</b>, we build APIs that <b>understand, adapt, and truly work with you.</b></p>
   </div>
@@ -129,4 +124,3 @@
 
 </body>
 </html>
-
