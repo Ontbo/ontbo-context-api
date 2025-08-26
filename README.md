@@ -119,8 +119,9 @@
     </ul>
   </div>
 
-  <br><p><em>✨ Let’s build something people didn’t think was possible.<br>
-  🔥 Go break things (and tell us what you build).</em></p>
+  <br><p>✨ Let’s build something people didn’t think was possible.<br>
+  🔥 Go break things (and tell us what you build).</p>
 
 </body>
 </html>
+
