@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ONTBO - Cognitive Context API for AI Agents</title>
   <style>
     .center {
       text-align: center;
@@ -130,3 +129,4 @@
 
 </body>
 </html>
+
