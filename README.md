@@ -106,7 +106,7 @@
     <ul>
       <li><strong>Full docs:</strong> <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></li>
       <li><strong>Community:</strong> <a href="https://discord.com/invite/N8h4ZBJb">Discord</a> · <a href="https://x.com/ONTBO_AI">X</a></li>
-      <li><strong>Contact:</strong> contact@ontbo.com</li>
+      <li><strong>Contact:</strong> <a href="mailto:contact@ontbo.com">Email Us</a></li>
     </ul>
   </div>
 
@@ -124,4 +124,5 @@
 
 </body>
 </html>
+
 
