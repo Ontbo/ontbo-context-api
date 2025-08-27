@@ -24,7 +24,7 @@
 from lib.ontbo import Ontbo
 p = Ontbo(token="...").create_profile("alice_test")
 s = p.create_scene("scene_test")
-s.add_messages([{"role": "user", "content": "Hello, my name is Alice!"}], update_now=True, wait_for_result=True)
+s.add_messages([{"role": "user", "content": "Hello, my name is Alice!"}], update_now=True)
 print(p.query_facts("What is my name?"))
 p.delete_profile(p.id)
 ```
@@ -144,4 +144,5 @@ p.delete_profile(p.id)
 
 </body>
 </html>
+
 
