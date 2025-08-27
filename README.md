@@ -10,6 +10,7 @@
   <p align="center">👉 Cognitive Context API for your AI Agents</p>
   <p align="center">🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
   <p align="center"><em>Doc : <a href="./docs/datasheet.pdf">here</a></em></p>
+  <p align="center">Enjoying ONTBO? ⭐️ us to support the project!</p>
 
   <div>
     <h2>🚀 Get started (seriously, 5 min)</h2>
@@ -144,5 +145,6 @@ p.delete_profile(p.id)
 
 </body>
 </html>
+
 
 
