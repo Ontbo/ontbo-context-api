@@ -12,6 +12,24 @@
   <p align="center"><em>Doc : <a href="./docs/datasheet.pdf">here</a></em></p>
 
   <div>
+    <h2>🚀 Get started (seriously, 5 min)</h2>
+    <p>
+    1️⃣ Create your account → <a href="https://api.ontbo.com">https://api.ontbo.com</a> <br>
+    2️⃣ Generate your API token <br>
+    3️⃣ (Optional) Grab the Python client lib & sample code & install requests <br>
+    4️⃣ Run it → ✨ see the magic happen
+    </p>
+<pre><code class="language-python">from lib.ontbo import Ontbo
+p = Ontbo(token="...").create_profile("alice_test")
+s = p.create_scene("scene_test")
+s.add_messages([{"role": "user", "content": "Hello, my name is Alice!"}])
+print(p.query_facts("What is my name?"))
+p.delete_profile(p.id)
+</code></pre>
+    <p>💡 Or skip the hand-holding and build your own client in any language → <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></p>
+  </div>
+
+  <div>
     <h2>⚡ Research Insights - Why you Win ?</h2>
     <table>
       <tr>
@@ -124,6 +142,7 @@
 
 </body>
 </html>
+
 
 
 
