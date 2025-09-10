@@ -17,8 +17,8 @@
     <p>
     1️⃣ Create your account → <a href="https://api.ontbo.com">https://api.ontbo.com</a> <br>
     2️⃣ Generate your API token <br>
-    3️⃣ Clone this client lib and run ```make init```<br>
-    4️⃣ Run the sample code main.py → ✨ see the magic happen
+    3️⃣ Clone this client lib and run <b>make init</b><br>
+    4️⃣ Run the sample code <b>main.py</b> → ✨ see the magic happen
     </p>
 
 Your first application in a few lines of code.
@@ -141,6 +141,7 @@ print(profile.query_facts("What is my name?"))
 
 </body>
 </html>
+
 
 
 
