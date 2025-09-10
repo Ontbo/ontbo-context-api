@@ -1,0 +1,3 @@
+.venv/
+ontbo/__pycache__/
+ontbo/ontbo_client.egg-info/

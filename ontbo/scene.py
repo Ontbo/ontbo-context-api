@@ -1,8 +1,8 @@
 from urllib.parse import urljoin
 from typing import List
 
-from lib.i_ontbo_server import IOntboServer
-from lib.scene_message import SceneMessage
+from ontbo.i_ontbo_server import IOntboServer
+from ontbo.scene_message import SceneMessage
 
 import json
 import requests

@@ -1,8 +1,8 @@
 from urllib.parse import urljoin
 from typing import List
 
-from lib.i_ontbo_server import IOntboServer
-from lib.profile import Profile
+from ontbo.i_ontbo_server import IOntboServer
+from ontbo.profile import Profile
 
 import requests
 

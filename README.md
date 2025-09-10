@@ -6,10 +6,10 @@
 <body>
   <img src="./docs/banner.png"></img>
   <h1>🛸 ONTBO - Cognitive Context API for AI Agents</h1>
-  <p align="center"><strong>Make AI understand.</strong></p>
+  <p align="center"><strong>Make AIs understand your users.</strong></p>
   <p align="center">👉 Cognitive Context API for your AI Agents</p>
   <p align="center">🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
-  <p align="center"><em>Doc : <a href="./docs/datasheet.pdf">here</a></em></p>
+  <p align="center"><em>Datasheet : <a href="./docs/datasheet.pdf">here</a></em></p>
   <p align="center">Enjoying ONTBO? ⭐️ us to support the project!</p>
 
   <div>
@@ -17,17 +17,24 @@
     <p>
     1️⃣ Create your account → <a href="https://api.ontbo.com">https://api.ontbo.com</a> <br>
     2️⃣ Generate your API token <br>
-    3️⃣ (Optional) Grab the Python client lib & sample code & install requests <br>
-    4️⃣ Run it → ✨ see the magic happen
+    3️⃣ Clone this client lib and run ```make init```<br>
+    4️⃣ Run the sample code main.py → ✨ see the magic happen
     </p>
 
+Your first application in a few lines of code.
 ```py
-from lib.ontbo import Ontbo
+from ontbo import Ontbo
 ontbo = Ontbo(token="...")
-p = ontbo.create_profile("alice_test")
-s = p.create_scene("scene_test")
-s.add_messages([{"role": "user", "content": "Hello, my name is Alice!"}], update_now=True)
-print(p.query_facts("What is my name?"))
+profile = ontbo.create_profile("alice_test")
+scene = profile.create_scene("scene_test")
+scene.add_messages(
+  [{
+    "role": "user", 
+    "content": "Hello world, my name is Alice!"
+  }], 
+  update_now=True)
+
+print(profile.query_facts("What is my name?"))
 ```
   <p>💡 Or skip the hand-holding and build your own client in any language → <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></p>
   </div>
@@ -112,20 +119,9 @@ print(p.query_facts("What is my name?"))
   </div>
 
   <div>
-    <h2>⚙️ Production Tips</h2>
-    <ul>
-      <li>Use <strong>low-latency mode</strong> for real-time UIs (P50 ≈ 40 ms)</li>
-      <li>Use <strong>best-performance</strong> for async batch jobs where recall matters (≈ 90% recall)</li>
-      <li>Set <strong>max_tokens_context</strong> to control cost → ONTBO prioritizes &amp; compresses context</li>
-      <li>Enable <strong>traceability</strong> for regulated/high-stakes outputs (export facts + provenance)</li>
-      <li>Monitor <strong>token_cost_saved_pct</strong> &amp; recall per tenant → tune retrieval modes</li>
-    </ul>
-  </div>
-
-  <div>
     <h2>📚 Documentation &amp; Support</h2>
     <ul>
-      <li><strong>Full docs:</strong> <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></li>
+      <li><strong>API reference docs:</strong> <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></li>
       <li><strong>Community:</strong> <a href="https://discord.com/invite/N8h4ZBJb">Discord</a> · <a href="https://x.com/ONTBO_AI">X</a></li>
       <li><strong>Contact:</strong> <a href="mailto:contact@ontbo.com">contact@ontbo.com</a></li>
     </ul>

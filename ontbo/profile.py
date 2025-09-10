@@ -1,10 +1,10 @@
 from typing import List, Union
 from urllib.parse import urljoin
 
-from lib.i_ontbo_server import IOntboServer
-from lib.scene import Scene
-from lib.update_status import UpdateStatus
-from lib.query_type import QueryType
+from ontbo.i_ontbo_server import IOntboServer
+from ontbo.scene import Scene
+from ontbo.update_status import UpdateStatus
+from ontbo.query_type import QueryType
 
 import requests
 
