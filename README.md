@@ -28,10 +28,11 @@ ontbo = Ontbo(token="...")
 profile = ontbo.create_profile("alice_test")
 scene = profile.create_scene("scene_test")
 scene.add_messages(
-  [{
-    "role": "user", 
-    "content": "Hello world, my name is Alice!"
-  }], 
+  [
+      SceneMessage(
+            content="Hello, my name is Alice!", 
+            role="user")
+  ], 
   update_now=True)
 
 print(profile.query_facts("What is my name?"))
@@ -141,6 +142,7 @@ print(profile.query_facts("What is my name?"))
 
 </body>
 </html>
+
 
 
 
