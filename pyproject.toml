@@ -1,9 +1,9 @@
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
 
 [project]
-name = "ontbo-client"
+name = "ontbo"
 version = "1.3.0"
 description = "Python client for the Ontbo API. Go-to https://www.ontbo.com/."
 readme = "README.md"
@@ -15,3 +15,7 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["ontbo"]
+
+[project.urls]
+Homepage = "https://github.com/Ontbo/ontbo-context-api"
+Issues = "https://github.com/Ontbo/ontbo-context-api/issues"
