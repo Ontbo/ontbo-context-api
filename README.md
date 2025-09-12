@@ -13,18 +13,20 @@
   <p align="center">Enjoying ONTBO? ⭐️ us to support the project!</p>
 
   <div>
-    <h2>🚀 Get started (seriously, 5 min)</h2>
-    <p>
-    1️⃣ Create your account → <a href="https://api.ontbo.com">https://api.ontbo.com</a> <br>
-    2️⃣ Generate your API token <br>
-    3️⃣ Clone this client lib and run <b>make init</b><br>
-    4️⃣ Run the sample code <b>main.py</b> → ✨ see the magic happen
-    </p>
 
-Your first application in a few lines of code.
+<h2>🚀 Get started (seriously, 5 min)</h2>
+
+1️⃣ Create your account and fetch your api key→ <a href="https://api.ontbo.com">https://api.ontbo.com</a>
+
+2️⃣ Install the lib
+```
+pip install ontbo
+```
+
+3️⃣ Your first application in a few lines of code.
 ```py
 from ontbo import Ontbo
-ontbo = Ontbo(token="...")
+ontbo = Ontbo(token="<YOU_API_KEY_HERE>")
 profile = ontbo.create_profile("alice_test")
 scene = profile.create_scene("scene_test")
 scene.add_messages(
@@ -37,6 +39,7 @@ scene.add_messages(
 
 print(profile.query_facts("What is my name?"))
 ```
+
   <p>💡 Or skip the hand-holding and build your own client in any language → <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></p>
   </div>
 
