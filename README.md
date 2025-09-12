@@ -32,19 +32,17 @@ pip install ontbo
 
 3️⃣ Your first application in a few lines of code.
 ```py
-from ontbo import Ontbo
+from ontbo import Ontbo, SceneMessage
+
 ontbo = Ontbo(token="<YOU_API_KEY_HERE>")
 profile = ontbo.create_profile("alice_test")
 scene = profile.create_scene("scene_test")
+
 scene.add_messages(
-  [
-      SceneMessage(
-            content="Hello, my name is Alice!", 
-            role="user")
-  ], 
+  [SceneMessage(content="Hello, my name is Alice!")], 
   update_now=True)
 
-print(profile.query_facts("What is my name?"))
+print(profile.query_facts("What the user's name?"))
 ```
 
   <p>💡 Not using Python? See directly our Web API reference → <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></p>
