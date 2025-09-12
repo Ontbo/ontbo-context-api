@@ -4,15 +4,22 @@
   <meta charset="UTF-8">
 </head>
 <body>
-  <img src="./docs/banner.png"></img>
+  <img src="./static/banner.png"></img>
+
   <h1>🛸 ONTBO - Cognitive Context API for AI Agents</h1>
+
   <p align="center"><strong>Make AIs understand your users.</strong></p>
   <p align="center">👉 Cognitive Context API for your AI Agents</p>
-  <p align="center">🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
-  <p align="center"><em>Datasheet : <a href="./docs/datasheet.pdf">here</a></em></p>
+  <p align="center">🌐 Homepage:<a href="https://www.ontbo.com">https://www.ontbo.com</a></p>
+  <p align="center">🤖 Developper hub:<a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
+  <p align="center">📄Datasheet: <a href="./static/datasheet.pdf">here</a></p>
   <p align="center">Enjoying ONTBO? ⭐️ us to support the project!</p>
 
   <div>
+<h2>What is Ontbo?</h2>
+
+Ontbo is a user context layer for you AI systems. It ingests conversations history and maintains a live user profile.
+Your agent queries for relevant information about the user for highly relevant answers.
 
 <h2>🚀 Get started (seriously, 5 min)</h2>
 
@@ -40,7 +47,7 @@ scene.add_messages(
 print(profile.query_facts("What is my name?"))
 ```
 
-  <p>💡 Or skip the hand-holding and build your own client in any language → <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></p>
+  <p>💡 Not using Python? See directly our Web API reference → <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></p>
   </div>
 
   <div>
@@ -84,12 +91,7 @@ print(profile.query_facts("What is my name?"))
     <p><strong>Memory stores. Context understands.</strong></p>
   </div>
 
-  <div>
-    <h2>🚀 What is ONTBO?</h2>
-    <p align="center">🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
-    <p>ONTBO is an <b>API that normalizes and structures user historic data</b> into a dynamic, reasoning-ready context layer to improve AI agent responses.<br>
-    From <b>passive tools</b> to <b>proactive partners</b>, we build APIs that <b>understand, adapt, and truly work with you.</b></p>
-  </div>
+
 
   <div>
     <h2>🧩 Main Features</h2>
