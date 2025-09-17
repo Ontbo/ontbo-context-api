@@ -12,8 +12,11 @@ class Scene:
     """
     A scene is a unit of interaction between the Profile (user) and the system.
 
-    Scenes can be created by calling:
-        Ontbo.profile(profile_id).scene(id)
+    You can get an existing scene by calling the method:
+        Ontbo(api_key).profile(profile_id).scene(id)
+
+    Or, you can also create a new scene for a profile by calling the method:
+        Ontbo(api_key).profile(profile_id).create_scene(id)
     """
 
     def __init__(self, server: IOntboServer, profile_id: str, id: str):
@@ -32,7 +35,10 @@ class Scene:
     @property
     def id(self) -> str:
         """
-        str: The unique ID of the scene.
+        Get the scene unique id.
+
+        Returns:
+            (str)The unique ID of the scene.
         """
         return self._id
 
@@ -46,9 +52,15 @@ class Scene:
         Add messages to the scene.
 
         Args:
-            messages (List[SceneMessage]): The messages to add.
-            update_now (bool): Whether to trigger an immediate update after adding messages.
-            wait_for_result (bool): Whether to wait for processing to complete.
+            messages (List[SceneMessage]): a list of SceneMessage objects to
+            add to the scene.
+            update_now (bool): If set to true, the profile update is initiated 
+            now. If set to false, profile might be updated later with
+            other calls to Scene.add_messages(), or with a call to 
+            Profile.update()
+            wait_for_result (bool): Use this when update_now is True. If
+            update_now is set to True and wait_for_result is set to true, the 
+            methode will wait for profile update to complete to update. 
 
         Returns:
             str: The ID of the newly added message batch.
@@ -70,7 +82,7 @@ class Scene:
 
     def clear_messages(self) -> None:
         """
-        Delete all messages from lib.the scene.
+        Clears all messages in the scene. 
         """
         response = requests.delete(
             urljoin(self._server.url,
@@ -82,7 +94,8 @@ class Scene:
     @property
     def messages(self) -> List[SceneMessage]:
         """
-        List[SceneMessage]: The list of messages in the scene.
+        Returns:
+            List[SCeneMessage]: the conversational data of the scene.
         """
         response = requests.get(
             urljoin(self._server.url,

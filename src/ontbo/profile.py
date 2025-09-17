@@ -13,9 +13,14 @@ class Profile:
     """
     Represents a user profile on the Ontbo server.
 
-    Profiles represent a single individual (typically a user of the host system).
-    Profiles can be created by calling:
-        Ontbo.profile(profile_id)
+    Profiles represent a single individual (typically a user of the host 
+    system).
+
+    To get an existing profile, use the method:
+        Ontbo(api_key).profile(profile_id)
+
+    To create a new profile, use the method:
+        Ontbo(api_key).create_profile(profile_id)
     """
 
     def __init__(self, server: IOntboServer, id: str):
@@ -63,23 +68,24 @@ class Profile:
         """
         return Scene(self._server, self.id, scene_id)
 
-    def create_scene(self, requested_id: str = "scene") -> Scene:
+    def create_scene(self, prefix: str = "scene") -> Scene:
         """
         Create a new scene for the current profile.
 
         Args:
-            requested_id (str, optional): The desired ID for the new scene.
-                                          Defaults to "scene".
+            prefix (str, optional): the prefix to use to for the scene ID.
+            Warning: the actual scene ID might differ from the prefix. Use 
+            the returned Scene.id property to get the created scene ID.
 
         Returns:
             Scene: The newly created Scene.
         """
-        if not requested_id:
-            requested_id = "scene"
+        if not prefix:
+            prefix = "scene"
 
         response = requests.post(
             urljoin(self._server.url, f"profiles/{self._id}/scenes"),
-            params={"requested_id": requested_id},
+            params={"requested_id": prefix},
             headers=self._server.headers,
         )
         response.raise_for_status()
