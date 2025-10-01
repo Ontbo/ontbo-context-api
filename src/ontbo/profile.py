@@ -40,6 +40,22 @@ class Profile:
         str: The profile UID.
         """
         return self._id
+    
+    @property
+    def exists(self) -> bool:
+        """Checks on the server if the profile actually exists."""
+
+        response = requests.get(
+            urljoin(self._server.url, f"profiles/{self._id}"),
+            headers=self._server.headers,
+        )
+
+        if response.status_code == 404:
+            return False
+        
+        response.raise_for_status()
+
+        return True
 
     @property
     def scene_ids(self) -> List[str]:
@@ -55,7 +71,7 @@ class Profile:
         )
         response.raise_for_status()
         return response.json()
-
+    
     def scene(self, scene_id: str) -> Scene:
         """
         Create a Scene object for the given ID (does not fetch data yet).
