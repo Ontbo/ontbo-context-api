@@ -14,21 +14,12 @@ class UpdateStatus:
             json_dict (dict): A dictionary containing update status data.
                 Expected keys:
                     - "status" (str): The current status of the update.
-                    - "progress" (int | float): The progress value, typically
-                      a percentage (0-100).
         """
         self._dict = json_dict
 
     @property
-    def status(self) -> str:
+    def pending(self) -> str:
         """
-        str: The current status of the update (e.g., 'IDLE', 'WORKING').
+        str: the number of pending scenes to process in queue.
         """
-        return self._dict["status"]
-
-    @property
-    def progress(self) -> int | float:
-        """
-        int | float: The progress of the update, usually represented as a percentage.
-        """
-        return self._dict["progress"]
+        return self._dict["pending"]

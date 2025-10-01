@@ -15,13 +15,14 @@ class Ontbo(IOntboServer):
     via a bearer token.
     """
 
-    def __init__(self, token: str, base_url: str = "https://api.ontbo.com/api/tests/"):
+    def __init__(self, token: str, base_url: str = "https://api.ontbo.com/api/v1.3/"):
         """
         Initialize the Ontbo client.
 
         Args:
             token (str): API authentication token.
-            base_url (str): Base URL of the Ontbo API.
+            base_url (str): Optional, base URL of the Ontbo API. Use this if
+            you need to connect to third-party instances of the Ontbo API.
         """
         self._url = base_url
         self._headers = {"Authorization": f"Bearer {token}"}
@@ -43,7 +44,9 @@ class Ontbo(IOntboServer):
 
     def profile(self, id: str) -> Profile:
         """
-        Create a Profile object for an existing profile on the server.
+        Returns the existing profile with the selected ID. Warning: does not 
+        check is the cprofile actually exists on the server. 
+        Use Ontbo.profile_ids to check if the profile exists. 
 
         Args:
             id (str): The profile UID.
@@ -58,8 +61,9 @@ class Ontbo(IOntboServer):
         Create a new profile on the server.
 
         Args:
-            requested_id (str): The desired ID for the new profile.
-                                (Uniqueness is enforced server-side.)
+            requested_id (str): The desired ID for the new profile. Uniqueness 
+            is enforced server-side. If a profile with the requested ID exists, 
+            the new profile IDs is created by adding a suffix to the profile ID.
 
         Returns:
             Profile: The newly created Profile object.
@@ -74,7 +78,7 @@ class Ontbo(IOntboServer):
 
     def delete_profile(self, id: str) -> bool:
         """
-        Delete a profile from lib.the server (along with its scenes).
+        Delete a profile from the server (along with its scenes).
 
         Args:
             id (str): The profile UID.

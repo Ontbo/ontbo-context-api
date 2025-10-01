@@ -121,20 +121,6 @@ class Profile:
         response.raise_for_status()
         return UpdateStatus(response.json()["status"])
 
-    def stop_update(self) -> UpdateStatus:
-        """
-        Stop the current profile update.
-
-        Returns:
-            UpdateStatus: The current update status after stopping.
-        """
-        response = requests.put(
-            urljoin(self._server.url, f"profiles/{self._id}/update/stop"),
-            headers=self._server.headers,
-        )
-        response.raise_for_status()
-        return UpdateStatus(response.json())
-
     def update_status(self) -> UpdateStatus:
         """
         Get the current computation status of an ongoing profile update.
