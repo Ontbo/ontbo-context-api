@@ -3,3 +3,4 @@ dist/
 ontbo/__pycache__/
 ontbo/ontbo_client.egg-info/
 samples/upload_json_profile/config.py
+src/ontbo/__pycache__/

@@ -45,8 +45,7 @@ class Scene:
     def add_messages(
         self,
         messages: List[SceneMessage],
-        update_now: bool = False,
-        wait_for_result: bool = True
+        update_now: bool = False
     ) -> str:
         """
         Add messages to the scene.
@@ -72,8 +71,7 @@ class Scene:
                     f"profiles/{self._profile_id}/scenes/{self._id}/text"),
             data=text_data,
             params={
-                "update_now": update_now,
-                "wait_for_result": wait_for_result
+                "update_now": update_now
             },
             headers=self._server.headers,
         )
