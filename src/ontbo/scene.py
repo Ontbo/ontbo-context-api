@@ -41,6 +41,20 @@ class Scene:
             (str)The unique ID of the scene.
         """
         return self._id
+    
+    @property
+    def exists(self) -> bool:
+        """Checks on the server if the profile actually exists."""
+
+        response = requests.get(
+            urljoin(self._server.url, f"profiles/{self._profile_id}/scenes/{self._id}"),
+            headers=self._server.headers,
+        )
+
+        if response.status_code == 404:
+            return False
+        
+        return True    
 
     def add_messages(
         self,
