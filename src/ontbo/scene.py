@@ -45,8 +45,7 @@ class Scene:
     def add_messages(
         self,
         messages: List[SceneMessage],
-        update_now: bool = False,
-        wait_for_result: bool = True
+        update_now: bool = False
     ) -> str:
         """
         Add messages to the scene.
@@ -58,9 +57,6 @@ class Scene:
             now. If set to false, profile might be updated later with
             other calls to Scene.add_messages(), or with a call to 
             Profile.update()
-            wait_for_result (bool): Use this when update_now is True. If
-            update_now is set to True and wait_for_result is set to true, the 
-            methode will wait for profile update to complete to update. 
 
         Returns:
             str: The ID of the newly added message batch.
@@ -72,11 +68,10 @@ class Scene:
                     f"profiles/{self._profile_id}/scenes/{self._id}/text"),
             data=text_data,
             params={
-                "update_now": update_now,
-                "wait_for_result": wait_for_result
+                "update_now": update_now
             },
             headers=self._server.headers,
-        )
+            )
         response.raise_for_status()
         return response.json()["id"]
 
