@@ -71,9 +71,6 @@ class Scene:
             now. If set to false, profile might be updated later with
             other calls to Scene.add_messages(), or with a call to 
             Profile.update()
-            wait_for_result (bool): Use this when update_now is True. If
-            update_now is set to True and wait_for_result is set to true, the 
-            methode will wait for profile update to complete to update. 
 
         Returns:
             str: The ID of the newly added message batch.
@@ -88,7 +85,7 @@ class Scene:
                 "update_now": update_now
             },
             headers=self._server.headers,
-        )
+            )
         response.raise_for_status()
         return response.json()["id"]
 
