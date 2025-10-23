@@ -96,7 +96,7 @@ class Profile:
             title (str, optional): the user-friendly title of the scene.
 
             source_type (str, optional): host-specific string to identify the 
-            type of source user for the import (app id, for example).
+            type of source used for the import (app id, for example).
 
             source_url (str, optional): the url of the resource used to create
             this scene.

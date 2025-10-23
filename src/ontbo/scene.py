@@ -34,9 +34,9 @@ class Scene:
         self._data = None
 
 
-    def _lazy_get(self, property_id: str, force_refresh:bool=False):
-        """Utilitary method to retrieve the value of a property without loading
-        data from the server at instanciation.
+    def _lazy_get(self, property_id: str, force_refresh: bool = False):
+        """Utility method to retrieve the value of a property without loading
+        data from the server at instantiation.
         """
         if self._data is None or force_refresh:
             response = requests.get(
@@ -49,7 +49,10 @@ class Scene:
             
             self._data = response.json()
 
-        return self._data[property_id]
+        try:
+            return self._data[property_id]
+        except KeyError:
+            raise KeyError(f"Property '{property_id}' not found in scene data for scene {self._id}")
 
 
     @property
@@ -100,7 +103,7 @@ class Scene:
             title (str, optional): the user-friendly title of the scene.
 
             source_type (str, optional): host-specific string to identify the 
-            type of source user for the import (app id, for example)
+            type of source used for the import (app id, for example)
 
             source_url (str, optional): the url of the resource used to create
             this scene.
@@ -121,13 +124,14 @@ class Scene:
 
         if source_url is not None:
             self._data['source_url'] = source_url
-            req_params['source_url'] = source_url            
+            req_params['source_url'] = source_url
 
-        requests.put(
-            urljoin(self._server._url, f"profiles/{self._profile_id}/scenes/{self._id}"),
+        response = requests.put(
+            urljoin(self._server.url, f"profiles/{self._profile_id}/scenes/{self._id}"),
             params=req_params,
-            headers=self._server._headers
-            )
+            headers=self._server.headers
+        )
+        response.raise_for_status()
         
     def add_messages(
         self,
