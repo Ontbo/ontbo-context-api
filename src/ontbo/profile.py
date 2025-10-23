@@ -84,11 +84,23 @@ class Profile:
         """
         return Scene(self._server, self.id, scene_id)
 
-    def create_scene(self, prefix: str = "scene") -> Scene:
+    def create_scene(self, 
+                     title: str|None = None,
+                     source_type: str|None = None,
+                     source_url: str|None = None,
+                     prefix: str|None = None) -> Scene:
         """
         Create a new scene for the current profile.
 
         Args:
+            title (str, optional): the user-friendly title of the scene.
+
+            source_type (str, optional): host-specific string to identify the 
+            type of source user for the import (app id, for example).
+
+            source_url (str, optional): the url of the resource used to create
+            this scene.
+            
             prefix (str, optional): the prefix to use to for the scene ID.
             Warning: the actual scene ID might differ from the prefix. Use 
             the returned Scene.id property to get the created scene ID.
@@ -96,12 +108,24 @@ class Profile:
         Returns:
             Scene: The newly created Scene.
         """
-        if not prefix:
-            prefix = "scene"
 
+        call_params = {}
+
+        if title:
+            call_params["title"] = title
+
+        if source_type:
+            call_params["source_type"] = source_type
+
+        if source_url:
+            call_params["source_url"] = source_url
+
+        if prefix:
+            call_params["prefix"] = prefix
+                                    
         response = requests.post(
             urljoin(self._server.url, f"profiles/{self._id}/scenes"),
-            params={"requested_id": prefix},
+            params=call_params,
             headers=self._server.headers,
         )
         response.raise_for_status()
