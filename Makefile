@@ -3,7 +3,7 @@ VENV := .venv
 PYTHON := python3
 PIP := $(VENV)/bin/pip
 
-.PHONY: init install clean
+.PHONY: init install clean test
 
 init:
 	$(PYTHON) -m venv $(VENV)
@@ -16,3 +16,7 @@ install:
 
 clean:
 	rm -rf $(VENV) dist build *.egg-info
+
+
+test:
+	pytest ./tests

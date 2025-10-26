@@ -5,6 +5,7 @@ from ontbo.i_ontbo_server import IOntboServer
 from ontbo.scene import Scene
 from ontbo.update_status import UpdateStatus
 from ontbo.query_type import QueryType
+from ontbo.exceptions import ProfileNotFoundError
 
 import requests
 
@@ -69,7 +70,12 @@ class Profile:
             urljoin(self._server.url, f"profiles/{self._id}/scenes"),
             headers=self._server.headers,
         )
+
+        if response.status_code == 404:
+            raise ProfileNotFoundError(self.id)
+        
         response.raise_for_status()
+
         return response.json()
     
     def scene(self, scene_id: str) -> Scene:
@@ -121,7 +127,7 @@ class Profile:
             call_params["source_url"] = source_url
 
         if prefix:
-            call_params["prefix"] = prefix
+            call_params["requested_id"] = prefix
                                     
         response = requests.post(
             urljoin(self._server.url, f"profiles/{self._id}/scenes"),
