@@ -1,6 +1,7 @@
 # Makefile
 VENV := .venv
 PYTHON := python3
+SOURCE := source
 PIP := $(VENV)/bin/pip
 
 .PHONY: init install clean test
@@ -19,4 +20,4 @@ clean:
 
 
 test:
-	pytest ./tests
+	$(VENV)/bin/pytest ./tests
