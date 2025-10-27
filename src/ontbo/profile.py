@@ -5,7 +5,7 @@ from ontbo.i_ontbo_server import IOntboServer
 from ontbo.scene import Scene
 from ontbo.update_status import UpdateStatus
 from ontbo.query_type import QueryType
-from ontbo.exceptions import ProfileNotFoundError
+from ontbo.exceptions import ProfileNotFoundError, SceneNotFoundError
 
 import requests
 
@@ -151,6 +151,15 @@ class Profile:
             urljoin(self._server.url, f"profiles/{self._id}/scenes/{scene_id}"),
             headers=self._server.headers,
         )
+
+        if response.status_code == 404:
+            exception_class = response.json()["detail"]["class"]
+            match response.json()["detail"]["class"]:
+                case "ProfileNotFoundError":
+                    raise ProfileNotFoundError(self._id)
+                case "SceneNotFoundError":
+                    raise SceneNotFoundError(scene_id)
+
         return response.status_code == 200
 
     def update(self) -> UpdateStatus:
@@ -164,8 +173,13 @@ class Profile:
             urljoin(self._server.url, f"profiles/{self._id}/update/run"),
             headers=self._server.headers,
         )
+        if response.status_code == 404:
+            raise ProfileNotFoundError(self.id)
+            
         response.raise_for_status()
-        return UpdateStatus(response.json()["status"])
+
+
+        return UpdateStatus(response.json())
 
     def update_status(self) -> UpdateStatus:
         """
@@ -178,6 +192,10 @@ class Profile:
             urljoin(self._server.url, f"profiles/{self._id}/update/status"),
             headers=self._server.headers,
         )
+        
+        if response.status_code == 404:
+            raise ProfileNotFoundError(self.id)
+
         response.raise_for_status()
         return UpdateStatus(response.json())
 

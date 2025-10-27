@@ -1,5 +1,5 @@
 import os
-from ontbo import Ontbo, ProfileNotFoundError
+from ontbo import Ontbo, SceneMessage, ProfileNotFoundError, SceneNotFoundError, UpdateStatus
 
 API_KEY=os.getenv("API_KEY")
 ONTBO_SERVER_ROOT=os.getenv("ONTBO_SERVER_ROOT")
@@ -139,10 +139,93 @@ def test_delete_scene():
 
     ontbo.delete_profile(profile.id)
 
+def test_delete_scene_non_existing():
+    exception_raised = False
+    try:
+        ontbo.profile("Non_existing_profile").delete_scene("some_scene")
+
+    except ProfileNotFoundError:
+        exception_raised = True
+    
+    assert exception_raised
+
+    exception_raised = False
+
+    profile = ontbo.create_profile()
+    try:
+        profile.delete_scene("some_scene")
+
+    except SceneNotFoundError:
+        exception_raised = True
+    
+    assert exception_raised
+
+    ontbo.delete_profile(profile.id)    
+
 
 # Profile.update
 
+def test_profile_update():
+    profile = ontbo.create_profile()
+
+    scene = profile.create_scene()
+
+    scene.add_messages(
+        [SceneMessage("Hi, my name is Mike !")]
+        )
+    
+    status = profile.update()
+    assert status.pending == 1
+
+    ontbo.delete_profile(profile.id)
+
+
+def test_profile_update():
+    profile = ontbo.profile("this_profile_does_not_exist")
+
+    assert not profile.exists
+
+    exception_raised = False
+
+    try:
+        profile.update()
+    except ProfileNotFoundError:
+        exception_raised = True
+
+    assert exception_raised
+
 # Profile.update_status
+
+def test_update_status():
+    profile = ontbo.create_profile()
+
+    # This profile has just been created, so the pending sount should be zero.
+    assert profile.update_status().pending == 0
+
+    scene = profile.create_scene()
+
+    scene.add_messages(
+        [SceneMessage("Hi, my name is Mike !")]
+        )
+    
+    status = profile.update()
+    assert status.pending == profile.update_status().pending
+    
+    ontbo.delete_profile(profile.id)
+    
+def test_update_status_on_non_existing():
+    profile = ontbo.profile("non_existing_profile")
+
+    exception_raised = False
+
+    try:
+        profile.update_status()
+    except ProfileNotFoundError:
+        exception_raised = True
+
+    assert exception_raised
+
+
 
 # Profile.list_facts
 
@@ -157,3 +240,14 @@ def test_delete_scene():
 # Profile.build_context
 
 # Profile.find_in_scenes
+
+
+if __name__ == "__main__":
+    ontbo = Ontbo("c", base_url="http://localhost:8000")
+
+    try:
+        ontbo.profile("me").delete_scene("abc")
+    except ProfileNotFoundError as e:
+        print(f"profile not found")
+    except SceneNotFoundError as e:
+        print(f"scene not found")        
