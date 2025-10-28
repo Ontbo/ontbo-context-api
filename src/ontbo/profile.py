@@ -5,6 +5,7 @@ from ontbo.i_ontbo_server import IOntboServer
 from ontbo.scene import Scene
 from ontbo.update_status import UpdateStatus
 from ontbo.query_type import QueryType
+from ontbo.exceptions import ProfileNotFoundError, SceneNotFoundError
 
 import requests
 
@@ -69,7 +70,12 @@ class Profile:
             urljoin(self._server.url, f"profiles/{self._id}/scenes"),
             headers=self._server.headers,
         )
+
+        if response.status_code == 404:
+            raise ProfileNotFoundError(self.id)
+        
         response.raise_for_status()
+
         return response.json()
     
     def scene(self, scene_id: str) -> Scene:
@@ -84,11 +90,23 @@ class Profile:
         """
         return Scene(self._server, self.id, scene_id)
 
-    def create_scene(self, prefix: str = "scene") -> Scene:
+    def create_scene(self, 
+                     title: str|None = None,
+                     source_type: str|None = None,
+                     source_url: str|None = None,
+                     prefix: str|None = None) -> Scene:
         """
         Create a new scene for the current profile.
 
         Args:
+            title (str, optional): the user-friendly title of the scene.
+
+            source_type (str, optional): host-specific string to identify the 
+            type of source used for the import (app id, for example).
+
+            source_url (str, optional): the url of the resource used to create
+            this scene.
+            
             prefix (str, optional): the prefix to use to for the scene ID.
             Warning: the actual scene ID might differ from the prefix. Use 
             the returned Scene.id property to get the created scene ID.
@@ -96,12 +114,24 @@ class Profile:
         Returns:
             Scene: The newly created Scene.
         """
-        if not prefix:
-            prefix = "scene"
 
+        call_params = {}
+
+        if title:
+            call_params["title"] = title
+
+        if source_type:
+            call_params["source_type"] = source_type
+
+        if source_url:
+            call_params["source_url"] = source_url
+
+        if prefix:
+            call_params["requested_id"] = prefix
+                                    
         response = requests.post(
             urljoin(self._server.url, f"profiles/{self._id}/scenes"),
-            params={"requested_id": prefix},
+            params=call_params,
             headers=self._server.headers,
         )
         response.raise_for_status()
@@ -121,6 +151,15 @@ class Profile:
             urljoin(self._server.url, f"profiles/{self._id}/scenes/{scene_id}"),
             headers=self._server.headers,
         )
+
+        if response.status_code == 404:
+            exception_class = response.json()["detail"]["class"]
+            match response.json()["detail"]["class"]:
+                case "ProfileNotFoundError":
+                    raise ProfileNotFoundError(self._id)
+                case "SceneNotFoundError":
+                    raise SceneNotFoundError(scene_id)
+
         return response.status_code == 200
 
     def update(self) -> UpdateStatus:
@@ -134,8 +173,13 @@ class Profile:
             urljoin(self._server.url, f"profiles/{self._id}/update/run"),
             headers=self._server.headers,
         )
+        if response.status_code == 404:
+            raise ProfileNotFoundError(self.id)
+            
         response.raise_for_status()
-        return UpdateStatus(response.json()["status"])
+
+
+        return UpdateStatus(response.json())
 
     def update_status(self) -> UpdateStatus:
         """
@@ -148,6 +192,10 @@ class Profile:
             urljoin(self._server.url, f"profiles/{self._id}/update/status"),
             headers=self._server.headers,
         )
+        
+        if response.status_code == 404:
+            raise ProfileNotFoundError(self.id)
+
         response.raise_for_status()
         return UpdateStatus(response.json())
 

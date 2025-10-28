@@ -3,9 +3,9 @@ from typing import List
 
 from ontbo.i_ontbo_server import IOntboServer
 from ontbo.profile import Profile
-
+from ontbo.exceptions import ProfileNotFoundError
 import requests
-
+from requests import HTTPError
 
 class Ontbo(IOntboServer):
     """
@@ -39,8 +39,11 @@ class Ontbo(IOntboServer):
             urljoin(self._url, "profiles"),
             headers=self._headers,
         )
+
         response.raise_for_status()
-        return response.json()
+
+        if response.status_code == 200:
+            return response.json()
 
     def profile(self, id: str) -> Profile:
         """
@@ -56,7 +59,7 @@ class Ontbo(IOntboServer):
         """
         return Profile(self, id)
 
-    def create_profile(self, requested_id: str) -> Profile:
+    def create_profile(self, requested_id: str|None=None) -> Profile:
         """
         Create a new profile on the server.
 
@@ -68,6 +71,7 @@ class Ontbo(IOntboServer):
         Returns:
             Profile: The newly created Profile object.
         """
+
         response = requests.post(
             urljoin(self._url, "profiles"),
             params={"requested_id": requested_id},
@@ -86,10 +90,19 @@ class Ontbo(IOntboServer):
         Returns:
             bool: True if deletion was successful, False otherwise.
         """
-        response = requests.delete(
-            urljoin(self._url, f"profiles/{id}"),
-            params={"delete_scenes": True},
-            headers=self._headers,
-        )
-        response.raise_for_status()
-        return response.json().get("result") == "OK"
+        try:
+            response = requests.delete(
+                urljoin(self._url, f"profiles/{id}"),
+                params={"delete_scenes": True},
+                headers=self._headers,
+            )
+
+            response.raise_for_status()
+            if response.status_code == 200:
+                return response.json().get("result") == "OK"
+        except HTTPError as e:
+            if e.response.status_code == 404:
+                raise ProfileNotFoundError(id)
+            else:
+                raise e
+

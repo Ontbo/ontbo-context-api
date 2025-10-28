@@ -4,3 +4,4 @@ from .query_type import QueryType
 from .scene_message import SceneMessage
 from .scene import Scene
 from .update_status import UpdateStatus
+from .exceptions import ProfileNotFoundError, SceneNotFoundError

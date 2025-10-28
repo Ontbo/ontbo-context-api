@@ -1,9 +1,10 @@
 # Makefile
 VENV := .venv
 PYTHON := python3
+SOURCE := source
 PIP := $(VENV)/bin/pip
 
-.PHONY: init install clean
+.PHONY: init install clean test
 
 init:
 	$(PYTHON) -m venv $(VENV)
@@ -16,3 +17,7 @@ install:
 
 clean:
 	rm -rf $(VENV) dist build *.egg-info
+
+
+test:
+	$(VENV)/bin/pytest ./tests

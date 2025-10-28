@@ -31,6 +31,29 @@ class Scene:
         self._server = server
         self._profile_id = profile_id
         self._id = id
+        self._data = None
+
+
+    def _lazy_get(self, property_id: str, force_refresh: bool = False):
+        """Utility method to retrieve the value of a property without loading
+        data from the server at instantiation.
+        """
+        if self._data is None or force_refresh:
+            response = requests.get(
+                    urljoin(self._server.url, f"profiles/{self._profile_id}/scenes/{self._id}"),
+                    headers=self._server.headers,
+                )
+            
+            if response.status_code == 404:
+                raise LookupError(f"Scene {self._id} doesn't exist for profile {self._profile_id}")
+            
+            self._data = response.json()
+
+        try:
+            return self._data[property_id]
+        except KeyError:
+            raise KeyError(f"Property '{property_id}' not found in scene data for scene {self._id}")
+
 
     @property
     def id(self) -> str:
@@ -53,9 +76,63 @@ class Scene:
 
         if response.status_code == 404:
             return False
+        else:
+            self._data = response.json()
+            return True    
         
-        return True    
+    @property
+    def title(self) -> str:
+        return self._lazy_get('title')
 
+    @property
+    def source_type(self) -> str:
+        return self._lazy_get('source_type')
+
+    @property
+    def source_url(self) -> str:
+        return self._lazy_get('source_url')     
+
+    def set_properties(self,
+            title: str|None = None,
+            source_type: str|None = None,
+            source_url: str|None = None):
+        """Updates the properties of a scene after creation. If a property
+        value is set to None, it is not updated. 
+
+        Args:
+            title (str, optional): the user-friendly title of the scene.
+
+            source_type (str, optional): host-specific string to identify the 
+            type of source used for the import (app id, for example)
+
+            source_url (str, optional): the url of the resource used to create
+            this scene.
+
+        """
+
+        req_params = {}
+
+        self._lazy_get('title')
+
+        if title is not None:
+            self._data['title'] = title
+            req_params['title'] = title
+
+        if source_type is not None:
+            self._data['source_type'] = source_type
+            req_params['source_type'] = source_type
+
+        if source_url is not None:
+            self._data['source_url'] = source_url
+            req_params['source_url'] = source_url
+
+        response = requests.put(
+            urljoin(self._server.url, f"profiles/{self._profile_id}/scenes/{self._id}"),
+            params=req_params,
+            headers=self._server.headers
+        )
+        response.raise_for_status()
+        
     def add_messages(
         self,
         messages: List[SceneMessage],
@@ -84,7 +161,7 @@ class Scene:
             params={
                 "update_now": update_now
             },
-            headers=self._server.headers,
+            headers=self._server.headers
             )
         response.raise_for_status()
         return response.json()["id"]
