@@ -76,7 +76,7 @@ class Profile:
         
         response.raise_for_status()
 
-        return response.json()
+        return [scene['id'] for scene in response.json()['items']]
     
     def scene(self, scene_id: str) -> Scene:
         """
@@ -222,6 +222,10 @@ class Profile:
             params={"fields": fields, "skip_items": skip_items, "max_items": max_items},
             headers=self._server.headers,
         )
+
+        if response.status_code == 404:
+            raise ProfileNotFoundError(self.id)
+                
         response.raise_for_status()
         return response.json()
 

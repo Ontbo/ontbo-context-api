@@ -19,3 +19,6 @@ where = ["ontbo"]
 [project.urls]
 Homepage = "https://github.com/Ontbo/ontbo-context-api"
 Issues = "https://github.com/Ontbo/ontbo-context-api/issues"
+
+[tool.pytest.ini_options]
+markers = ["llmtest: tests that use llm (use '--llmtests' to include them)"]

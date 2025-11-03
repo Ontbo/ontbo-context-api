@@ -1,11 +1,13 @@
 import os
+import pytest
 from ontbo import Ontbo, SceneMessage, ProfileNotFoundError, SceneNotFoundError, UpdateStatus
 
 API_KEY=os.getenv("API_KEY")
 ONTBO_SERVER_ROOT=os.getenv("ONTBO_SERVER_ROOT")
 
 ontbo = Ontbo(API_KEY, base_url=ONTBO_SERVER_ROOT)
-
+import time
+TEST_LLM_FUNCTIONS=False
 
 ###############################################################################
 # Tests for the Profile class
@@ -174,7 +176,7 @@ def test_profile_update():
         [SceneMessage("Hi, my name is Mike !")]
         )
     
-    status = profile.update()
+    status: UpdateStatus = profile.update()
     assert status.pending == 1
 
     ontbo.delete_profile(profile.id)
@@ -213,6 +215,14 @@ def test_update_status():
     
     ontbo.delete_profile(profile.id)
     
+
+def test_update_on_new_profile():
+    profile = ontbo.create_profile()
+
+    assert profile.update_status().pending == 0
+
+    ontbo.delete_profile(profile.id)
+        
 def test_update_status_on_non_existing():
     profile = ontbo.profile("non_existing_profile")
 
@@ -222,16 +232,130 @@ def test_update_status_on_non_existing():
         profile.update_status()
     except ProfileNotFoundError:
         exception_raised = True
-
+ 
     assert exception_raised
-
-
 
 # Profile.list_facts
 
+@pytest.mark.llmtest
+def test_list_facts():
+    profile = ontbo.create_profile()
+
+    scene = profile.create_scene()
+
+    scene.add_messages(
+        [
+            SceneMessage("Hi, my name is Mike !"),
+            SceneMessage("I am 35 years old."),
+            SceneMessage("I have a dog called Bernard.")
+        ],
+        update_now=True
+        )
+    
+    status = profile.update_status()
+    while status.pending > 0:
+        time.sleep(1)
+        status = profile.update_status()
+
+    facts = profile.list_facts()
+
+    assert type(facts) is list
+    assert len(facts) != 0
+
+
+def test_list_facts_on_new_profile():
+    profile = ontbo.create_profile()
+
+    facts = profile.list_facts()
+
+    assert type(facts) is list
+    assert len(facts) == 0
+    ontbo.delete_profile(profile.id)
+    
+def test_list_facts_on_non_existing_profile():
+    profile = ontbo.profile("this_profile_does_not_exist")
+
+    assert not profile.exists
+
+    exception_raised = False
+    try:
+        facts = profile.list_facts()
+    except ProfileNotFoundError:
+        exception_raised = True
+
+    assert exception_raised    
+
 # Profile.query_facts
 
+@pytest.mark.llmtest
+def test_query_facts():
+
+    profile = ontbo.create_profile()
+
+    scene = profile.create_scene()
+
+    scene.add_messages(
+        [
+            SceneMessage("Hi, my name is Mike !"),
+            SceneMessage("I am 35 years old."),
+            SceneMessage("I have a dog called Bernard.")
+        ],
+        update_now=True
+        )
+    
+    status = profile.update_status()
+    while status.pending > 0:
+        time.sleep(1)
+        status = profile.update_status()
+
+    response = profile.query_facts("What is the user's name?")
+
+    assert type(response) is str
+    assert response.find("Mike") >=0
+
+
+def test_query_facts_on_non_existing_profile():
+    profile = ontbo.profile("this_profile_does_not_exist")
+
+    assert not profile.exists
+
+    exception_raised = False
+    try:
+        facts = profile.query_facts("What is the user's name?")
+    except ProfileNotFoundError:
+        exception_raised = True
+
+    assert exception_raised        
+
+
 # Profile.append_facts
+
+@pytest.mark.llmtest
+def test_append_facts():
+    profile = ontbo.create_profile()
+
+    profile.append_facts("My name is Michael")
+
+    facts = profile.list_facts()
+
+    assert type(facts) is list
+    assert len(facts) != 0
+
+    ontbo.delete_profile(profile.id)
+
+@pytest.mark.llmtest
+def test_append_facts_on_non_existing_profile():
+    profile = ontbo.profile("this_profile_does_not_exist")
+
+    assert not profile.exists
+
+    exception_raised = False
+    try:
+        facts = profile.append_facts("My name is Michael")
+    except ProfileNotFoundError:
+        exception_raised = True
+
+    assert exception_raised        
 
 # Profile.get_fact_details
 
@@ -241,6 +365,7 @@ def test_update_status_on_non_existing():
 
 # Profile.find_in_scenes
 
+# TODO : add list facts with the desired fields as parameter.
 
 if __name__ == "__main__":
     ontbo = Ontbo("c", base_url="http://localhost:8000")

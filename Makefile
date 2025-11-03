@@ -21,3 +21,6 @@ clean:
 
 test:
 	$(VENV)/bin/pytest ./tests
+
+test-full:
+	$(VENV)/bin/pytest --llmtests ./tests
