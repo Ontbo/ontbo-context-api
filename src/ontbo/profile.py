@@ -5,7 +5,7 @@ from ontbo.i_ontbo_server import IOntboServer
 from ontbo.scene import Scene
 from ontbo.update_status import UpdateStatus
 from ontbo.query_type import QueryType
-from ontbo.exceptions import ProfileNotFoundError, SceneNotFoundError
+from ontbo.exceptions import ProfileNotFoundError, SceneNotFoundError, InvalidResponseError
 
 import requests
 
@@ -76,7 +76,12 @@ class Profile:
         
         response.raise_for_status()
 
-        return response.json()
+        rjson: dict = response.json()
+
+        if not "items" in response.json().keys():
+            raise InvalidResponseError("items not found in server response")
+
+        return [item["id"] for item in rjson["items"]]
     
     def scene(self, scene_id: str) -> Scene:
         """

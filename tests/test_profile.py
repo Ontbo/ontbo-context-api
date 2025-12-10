@@ -1,4 +1,5 @@
 import os
+import time
 from ontbo import Ontbo, SceneMessage, ProfileNotFoundError, SceneNotFoundError, UpdateStatus
 
 API_KEY=os.getenv("API_KEY")
@@ -6,6 +7,7 @@ ONTBO_SERVER_ROOT=os.getenv("ONTBO_SERVER_ROOT")
 
 ontbo = Ontbo(API_KEY, base_url=ONTBO_SERVER_ROOT)
 
+PROFILE_UPDATE_MAX_SECONDS_WAIT = 30
 
 ###############################################################################
 # Tests for the Profile class
@@ -180,7 +182,7 @@ def test_profile_update():
     ontbo.delete_profile(profile.id)
 
 
-def test_profile_update():
+def test_profile_update_on_non_existing_profile():
     profile = ontbo.profile("this_profile_does_not_exist")
 
     assert not profile.exists
@@ -225,29 +227,114 @@ def test_update_status_on_non_existing():
 
     assert exception_raised
 
-
-
-# Profile.list_facts
-
 # Profile.query_facts
+# Profile.build_context
+
+
+def test_profile_query_facts():
+
+    profile = ontbo.create_profile()
+
+    # This profile has just been created, so the pending sount should be zero.
+    assert profile.update_status().pending == 0
+
+    scene = profile.create_scene()
+
+    scene.add_messages(
+        [SceneMessage("Hi, my name is Mike and I am a software engineer !")]
+        )
+    
+    status = profile.update()
+    assert status.pending == profile.update_status().pending
+
+    retry_count = PROFILE_UPDATE_MAX_SECONDS_WAIT
+
+    while profile.update_status().pending != 0 and retry_count > 0:
+        time.sleep(1)
+
+    assert retry_count > 0
+
+    assert profile.query_facts("What is the user's name?").find("Mike")
+    assert profile.query_facts("What is the user's job?").find("engineer")
+
+    assert profile.build_context("White me an introduction letter for a job").find("engineer")
+
+    ontbo.delete_profile(profile.id)    
+
+
 
 # Profile.append_facts
 
-# Profile.get_fact_details
+def test_profile_append_facts():
 
+
+    profile = ontbo.create_profile()
+
+    # This profile has just been created, so the pending sount should be zero.
+    assert profile.update_status().pending == 0
+
+    profile.append_facts("I like bananas")
+
+    profile.update()
+
+    retry_count = PROFILE_UPDATE_MAX_SECONDS_WAIT
+
+    while profile.update_status().pending != 0 and retry_count > 0:
+        time.sleep(1)
+
+    assert retry_count > 0
+
+    assert profile.query_facts("What fruit does the user like?").find("Banana")
+
+    ontbo.delete_profile(profile.id)    
+
+
+# Profile.list_facts
+# Profile.get_fact_details
 # Profile.delete_fact
 
-# Profile.build_context
 
+def test_profile_list_facts():
+
+    profile = ontbo.create_profile()
+
+    assert profile.list_facts() == []
+
+    profile.append_facts("I like bananas")
+
+    profile.update()
+
+    while profile.update_status().pending != 0 and retry_count > 0:
+        time.sleep(1)
+
+    retry_count = PROFILE_UPDATE_MAX_SECONDS_WAIT
+
+    assert retry_count > 0
+
+    facts = profile.list_facts(fields=["id", "data", "timestamp"])
+
+    assert facts != []
+
+    assert "id" in facts[0].keys()
+    assert "data" in facts[0].keys()
+    assert "timestamp" in facts[0].keys()
+
+    fact_id = facts[0]["id"]
+
+
+    profile.delete_fact(fact_id)
+
+    facts = profile.list_facts(fields=["id", "data", "timestamp"])
+
+    assert fact_id not in [fact["id"] for fact in facts]
+
+
+    ontbo.delete_profile(profile.id)    
+
+
+
+
+# TODO when implemented
 # Profile.find_in_scenes
 
 
-if __name__ == "__main__":
-    ontbo = Ontbo("c", base_url="http://localhost:8000")
-
-    try:
-        ontbo.profile("me").delete_scene("abc")
-    except ProfileNotFoundError as e:
-        print(f"profile not found")
-    except SceneNotFoundError as e:
-        print(f"scene not found")        

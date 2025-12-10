@@ -16,3 +16,11 @@ class SceneNotFoundError(LookupError):
     def __str__(self):
         details_str = f"({self._details})" if self._details is not None else ""
         return f"Scene {self._scene_id} not found {details_str}."
+
+class InvalidResponseError(Exception):
+    def __init__(self, details=None):
+        self._details = details
+
+    def __str__(self):
+        details_str = f": ({self._details})" if self._details is not None else "."
+        return f"The server returned an invalid response{details_str}"
