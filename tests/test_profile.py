@@ -230,7 +230,6 @@ def test_update_status_on_non_existing():
 # Profile.query_facts
 # Profile.build_context
 
-
 def test_profile_query_facts():
 
     profile = ontbo.create_profile()
@@ -261,8 +260,6 @@ def test_profile_query_facts():
 
     ontbo.delete_profile(profile.id)    
 
-
-
 # Profile.append_facts
 
 def test_profile_append_facts():
@@ -292,7 +289,6 @@ def test_profile_append_facts():
 # Profile.list_facts
 # Profile.get_fact_details
 # Profile.delete_fact
-
 
 def test_profile_list_facts():
 
