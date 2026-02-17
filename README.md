@@ -1,6 +1,6 @@
 
 ![header Ontbo](https://github.com/user-attachments/assets/780ad7c3-2e95-41a7-8459-7cfdd2ce2504)
-[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/N8h4ZBJb)
+<p align="center">[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/N8h4ZBJb)
 
   <p align="center"><strong>Make AIs understand your users.</strong></p>
   <p align="center">👉 Cognitive Context API for your AI Agents</p>
@@ -42,16 +42,6 @@ If your assistants hallucinate, token bills spike, and user context lives in 12 
     <p>🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
   </div>
 
-<h2> 🤖 Why Ontbo? </h2>
-
-The biggest bottleneck for AI agents isn't the model—it's the **context**. 
-Stop duct-taping prompt engineering and messy RAG pipelines. Ontbo provides a specialized **Cognitive Context API** that acts as a sophisticated memory layer for your LLMs.
-
-* **📉 Cut Token Waste:** Don't resend the same facts. Ontbo optimizes what goes into the prompt.
-* **🚫 Kill Hallucinations:** Ground your agent with verified, retrieved facts in real-time.
-* **🧠 Human-like Memory:** Manage complex user histories and cross-session knowledge effortlessly.
-* **⚡ Dev-First:** Integrates with your existing stack in minutes.
-
 
 <h2>🚀 Get started (seriously, 5 min)</h2>
 
@@ -79,6 +69,16 @@ print(profile.query_facts("What the user's name?"))
 
   <p>💡 Not using Python? See directly our Web API reference → <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></p>
   </div>
+
+<h2> 🤖 Why Ontbo? </h2>
+
+The biggest bottleneck for AI agents isn't the model—it's the **context**. 
+Stop duct-taping prompt engineering and messy RAG pipelines. Ontbo provides a specialized **Cognitive Context API** that acts as a sophisticated memory layer for your LLMs.
+
+* **📉 Cut Token Waste:** Don't resend the same facts. Ontbo optimizes what goes into the prompt.
+* **🚫 Kill Hallucinations:** Ground your agent with verified, retrieved facts in real-time.
+* **🧠 Human-like Memory:** Manage complex user histories and cross-session knowledge effortlessly.
+* **⚡ Dev-First:** Integrates with your existing stack in minutes.
 
   <div>
     <h2>⚡ Research Insights - Why you Win ?</h2>
@@ -114,17 +114,8 @@ print(profile.query_facts("What the user's name?"))
   </div>
 
 ---
-  <div>
-    <h2>🏗 Strategic Benefits (Product &amp; Infra)</h2>
-    <ul>
-      <li><strong>Product</strong> → sharper, context-aware responses → higher CSAT &amp; conversions</li>
-      <li><strong>Infra</strong> → big LLM token savings &amp; lower inference load → measurable cost reductions</li>
-      <li><strong>Moat</strong> → fine-grained, context-rich personalization with traceable provenance</li>
-      <li><strong>Ops</strong> → faster model creation &amp; iteration (+200%), predictable scaling, fewer cold starts</li>
-    </ul>
-  </div>
   
-## ⚡️ Performance Showcase: ChatGPT 5.2 vs. Ontbo API
+## ⚡️ Performance Showcase: ChatGPT 5.2 x Ontbo API
 
 Context fragmentation is the silent killer of AI efficiency. See how Ontbo transforms a standard LLM interaction by providing a sophisticated cognitive memory layer.
 
@@ -139,6 +130,15 @@ Context fragmentation is the silent killer of AI efficiency. See how Ontbo trans
 
 > **Key Takeaway:** While standard models struggle with "duct-taped" prompt engineering, Ontbo ensures your agent actually *understands* the historical context of the conversation.
 
+<div>
+    <h2>🏗 Strategic Benefits (Product &amp; Infra)</h2>
+    <ul>
+      <li><strong>Product</strong> → sharper, context-aware responses → higher CSAT &amp; conversions</li>
+      <li><strong>Infra</strong> → big LLM token savings &amp; lower inference load → measurable cost reductions</li>
+      <li><strong>Moat</strong> → fine-grained, context-rich personalization with traceable provenance</li>
+      <li><strong>Ops</strong> → faster model creation &amp; iteration (+200%), predictable scaling, fewer cold starts</li>
+    </ul>
+  </div>
 
 <img width="3509" height="2481" alt="Benchmark Ontbo_2026" src="https://github.com/user-attachments/assets/27301fb8-7834-4dba-af52-098824243db5" />
  <p> This is not merely another vendor-biased benchmark. This performance analysis, comparing ChatGPT 5.2 without Ontbo API and ChatGPT 5.2 with Ontbo API, follows a rigorous methodology formally validated by the Cambridge University Scientific Board in December 2025. Based on 19 items (demographics, cognition, health, finances…).
@@ -174,6 +174,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
