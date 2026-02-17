@@ -1,6 +1,5 @@
 
 ![header Ontbo](https://github.com/user-attachments/assets/780ad7c3-2e95-41a7-8459-7cfdd2ce2504)
-<p align="center">[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/N8h4ZBJb)
 
   <p align="center"><strong>Make AIs understand your users.</strong></p>
   <p align="center">👉 Cognitive Context API for your AI Agents</p>
@@ -174,6 +173,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
