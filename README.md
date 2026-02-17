@@ -5,16 +5,16 @@
   <p align="center">👉 Cognitive Context API for your AI Agents</p>
   <p align="center">🌐 Homepage:<a href="https://www.ontbo.com">https://www.ontbo.com</a></p>
   <p align="center">🤖 Developper hub:<a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
-  <p align="center">📄Datasheet: <a href="./static/datasheet.pdf">here</a></p>
+  <p align="center">📄 Datasheet: <a href="./static/datasheet.pdf">here</a></p>
   <p align="center">Enjoying ONTBO? ⭐️ us to support the project!</p>
 
   <div>
-    <h2>🔥 Introduction </h2>
+    <h2> Introduction </h2>
 
 We add long-term memory, persistent context, and reasoning-driven retrieval to turn stateless models into reliable, scalable AI systems.
 Ontbo API, plugs into any LLM stack to improve answer quality and make AI systems consistent over time.
 Your agent queries for relevant information about the user for highly relevant answers.
-If your assistants hallucinate, token bills spike, and user context lives in 12 different silos – <strong>ONTBO fixes that.</strong></p>
+ <p> If your assistants hallucinate, token bills spike, and user context lives in 12 different silos – <strong>ONTBO fixes that.</strong></p>
     <p>Plug a <b>cognitive layer</b> in front of your LLMs/Agents and stop duct-taping prompt engineering.<br>
     Your agents become sharper.</p>
     <p><strong>Memory stores. Context understands.</strong></p>
@@ -173,6 +173,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
