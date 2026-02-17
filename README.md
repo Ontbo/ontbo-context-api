@@ -23,7 +23,7 @@ Your agent queries for relevant information about the user for highly relevant a
 
 ---
 
-## ⚡️ Performance Showcase: Vanilla ChatGPT vs. Ontbo API
+## ⚡️ Performance Showcase: ChatGPT 5.2 vs. Ontbo API
 
 Context fragmentation is the silent killer of AI efficiency. See how Ontbo transforms a standard LLM interaction by providing a sophisticated cognitive memory layer.
 
@@ -176,6 +176,7 @@ print(profile.query_facts("What the user's name?"))
 
 </body>
 </html>
+
 
 
 
