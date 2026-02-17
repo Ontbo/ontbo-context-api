@@ -39,7 +39,7 @@ Context fragmentation is the silent killer of AI efficiency. See how Ontbo trans
 > **Key Takeaway:** While standard models struggle with "duct-taped" prompt engineering, Ontbo ensures your agent actually *understands* the historical context of the conversation.
 
 
-<h2> 🚀 Why Ontbo? </h2>
+<h2> 🤖 Why Ontbo? </h2>
 
 The biggest bottleneck for AI agents isn't the model—it's the **context**. 
 Stop duct-taping prompt engineering and messy RAG pipelines. Ontbo provides a specialized **Cognitive Context API** that acts as a sophisticated memory layer for your LLMs.
@@ -181,6 +181,7 @@ print(profile.query_facts("What the user's name?"))
 
 </body>
 </html>
+
 
 
 
