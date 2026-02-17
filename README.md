@@ -34,7 +34,7 @@ Ontbo API plugs into any LLM stack and helps teams build reliable, scalable AI s
   </div>
 
 <div>
-    <h2>🎯 Use Cases</h2>
+    <h3>🎯 Use Cases</h3>
     <ul>
       <li><strong>Personal AI</strong> → not memory. Awareness that adapts to you in real time</li>
       <li><strong>Customer Support</strong> → not logs. Clear user story that resolves issues on the first touch</li>
@@ -132,7 +132,7 @@ Context fragmentation is the silent killer of AI efficiency. See how Ontbo trans
 > **Key Takeaway:** While standard models struggle with "duct-taped" prompt engineering, Ontbo ensures your agent actually *understands* the historical context of the conversation.
 
 <div>
-    <h2>🏗 Strategic Benefits (Product &amp; Infra)</h2>
+    <h3>🏗 Strategic Benefits (Product &amp; Infra)</h3>
     <ul>
       <li><strong>Product</strong> → sharper, context-aware responses → higher CSAT &amp; conversions</li>
       <li><strong>Infra</strong> → big LLM token savings &amp; lower inference load → measurable cost reductions</li>
@@ -149,7 +149,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 ➡️ It’s not a RAG, not memory tools, not a buffer. <p>
 
   <div>
-    <h2>📚 Documentation &amp; Support</h2>
+    <h3>📚 Documentation &amp; Support</h3>
     <ul>
       <li><strong>API reference docs:</strong> <a href="https://api.ontbo.com/api/tests/docs">https://api.ontbo.com/api/tests/docs</a></li>
       <li><strong>Community:</strong> <a href="https://discord.com/invite/N8h4ZBJb">Discord</a> · <a href="https://x.com/ONTBO_AI">X</a></li>
@@ -158,7 +158,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
   </div>
 
   <div>
-    <h2>🤝 License &amp; Contributions</h2>
+    <h3>🤝 License &amp; Contributions</h3>
     <ul>
       <li><strong>License: </strong><a href="./LICENSE">Apache 2.0</a></li>
       <li><strong>Contributions:</strong> PRs welcome. Open issues for bugs/feature requests</li>
@@ -175,6 +175,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
