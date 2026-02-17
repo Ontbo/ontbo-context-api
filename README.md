@@ -11,7 +11,8 @@
   <div>
     <h2>🔥 Introduction </h2>
 
-Ontbo is a user context layer for you AI systems. It ingests conversations history and maintains a live user profile.
+We add long-term memory, persistent context, and reasoning-driven retrieval to turn stateless models into reliable, scalable AI systems.
+Ontbo API, plugs into any LLM stack to improve answer quality and make AI systems consistent over time.
 Your agent queries for relevant information about the user for highly relevant answers.
 If your assistants hallucinate, token bills spike, and user context lives in 12 different silos – <strong>ONTBO fixes that.</strong></p>
     <p>Plug a <b>cognitive layer</b> in front of your LLMs/Agents and stop duct-taping prompt engineering.<br>
@@ -172,6 +173,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
