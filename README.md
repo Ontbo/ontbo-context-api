@@ -1,9 +1,6 @@
 
 ![header Ontbo](https://github.com/user-attachments/assets/780ad7c3-2e95-41a7-8459-7cfdd2ce2504)
-
-[![Discord](https://img.shields.io/badge/Discord-Join%20Us-purple?style=for-the-badge&logo=discord)] (https://discord.com/invite/N8h4ZBJb)
-
-  <h1> ONTBO 🧠 The Memory and Context Layer for AI Agents </h1>
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/N8h4ZBJb)
 
   <p align="center"><strong>Make AIs understand your users.</strong></p>
   <p align="center">👉 Cognitive Context API for your AI Agents</p>
@@ -13,28 +10,37 @@
   <p align="center">Enjoying ONTBO? ⭐️ us to support the project!</p>
 
   <div>
-<h2>What is Ontbo?</h2>
+<h2> Introduction </h2>
 
 Ontbo is a user context layer for you AI systems. It ingests conversations history and maintains a live user profile.
 Your agent queries for relevant information about the user for highly relevant answers.
+If your assistants hallucinate, token bills spike, and user context lives in 12 different silos – <strong>ONTBO fixes that.</strong></p>
+    <p>Plug a <b>cognitive layer</b> in front of your LLMs/Agents and stop duct-taping prompt engineering.<br>
+    Your agents become sharper, faster, and cheaper.</p>
+    <p><strong>Memory stores. Context understands.</strong></p>
+  </div>
 
----
 
-## ⚡️ Performance Showcase: ChatGPT 5.2 vs. Ontbo API
+  <div>
+    <h2>🧩 Main Features</h2>
+    <ul>
+      <li><strong>Context Layer</strong> → multi-agent, reasoning-based retrieval that packs only the facts that matter</li>
+      <li><strong>Lifecycle Management</strong> → facts are versioned, updated, and conflict-resolved automatically</li>
+      <li><strong>Autonomous CoT Orchestration</strong> → self-directed reasoning → fewer tokens, faster replies, higher accuracy</li>
+      <li><strong>Data Governance</strong> → white-box by design — full traceability, provenance, and user-level control baked in</li>
+    </ul>
+  </div>
 
-Context fragmentation is the silent killer of AI efficiency. See how Ontbo transforms a standard LLM interaction by providing a sophisticated cognitive memory layer.
-
-### 🎬 Comparative Demo
-[![Watch the Demo](https://img.youtube.com/vi/e0uITdv5xlc/maxresdefault.jpg)](https://www.youtube.com/watch?v=e0uITdv5xlc)
-
-| Feature | ChatGPT (5.2 thinking) | ChatGPT + Ontbo API |
-| :--- | :--- | :--- |
-| **Context Retention** | Limited / "Forgetful" | **Persistent & Cognitive** |
-| **Retrieval Accuracy** | Basic RAG (Messy) | **Specialized Memory Layer** |
-| **Logic Consistency** | Dribbles over long sessions | **Maintains High-Fidelity Logic** |
-
-> **Key Takeaway:** While standard models struggle with "duct-taped" prompt engineering, Ontbo ensures your agent actually *understands* the historical context of the conversation.
-
+<div>
+    <h2>🎯 Use Cases</h2>
+    <ul>
+      <li><strong>Personal AI</strong> → not memory. Awareness that adapts to you in real time</li>
+      <li><strong>Customer Support</strong> → not logs. Clear user story that resolves issues on the first touch</li>
+      <li><strong>Healthcare</strong> → not raw data. Connect all the dots for reliable patient profiles → safer adaptive care</li>
+      <li><strong>Developer &amp; Creator Copilots</strong> → not autocomplete. Repo + workflow intelligence that guides the next move</li>
+    </ul>
+    <p>🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
+  </div>
 
 <h2> 🤖 Why Ontbo? </h2>
 
@@ -107,37 +113,7 @@ print(profile.query_facts("What the user's name?"))
     ✔️ pick precision/latency/cost tradeoffs per request</p>
   </div>
 
-  <div>
-    <h2>📖 Introduction</h2>
-    <p>If your assistants hallucinate, token bills spike, and user context lives in 12 different silos – <strong>ONTBO fixes that.</strong></p>
-    <p>Plug a <b>cognitive layer</b> in front of your LLMs/Agents and stop duct-taping prompt engineering.<br>
-    Your agents become sharper, faster, and cheaper.</p>
-    <p><strong>Memory stores. Context understands.</strong></p>
-  </div>
-
-
-
-  <div>
-    <h2>🧩 Main Features</h2>
-    <ul>
-      <li><strong>Context Layer</strong> → multi-agent, reasoning-based retrieval that packs only the facts that matter</li>
-      <li><strong>Lifecycle Management</strong> → facts are versioned, updated, and conflict-resolved automatically</li>
-      <li><strong>Autonomous CoT Orchestration</strong> → self-directed reasoning → fewer tokens, faster replies, higher accuracy</li>
-      <li><strong>Data Governance</strong> → white-box by design — full traceability, provenance, and user-level control baked in</li>
-    </ul>
-  </div>
-
-  <div>
-    <h2>🎯 Use Cases</h2>
-    <ul>
-      <li><strong>Personal AI</strong> → not memory. Awareness that adapts to you in real time</li>
-      <li><strong>Customer Support</strong> → not logs. Clear user story that resolves issues on the first touch</li>
-      <li><strong>Healthcare</strong> → not raw data. Connect all the dots for reliable patient profiles → safer adaptive care</li>
-      <li><strong>Developer &amp; Creator Copilots</strong> → not autocomplete. Repo + workflow intelligence that guides the next move</li>
-    </ul>
-    <p>🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
-  </div>
-
+---
   <div>
     <h2>🏗 Strategic Benefits (Product &amp; Infra)</h2>
     <ul>
@@ -147,6 +123,22 @@ print(profile.query_facts("What the user's name?"))
       <li><strong>Ops</strong> → faster model creation &amp; iteration (+200%), predictable scaling, fewer cold starts</li>
     </ul>
   </div>
+  
+## ⚡️ Performance Showcase: ChatGPT 5.2 vs. Ontbo API
+
+Context fragmentation is the silent killer of AI efficiency. See how Ontbo transforms a standard LLM interaction by providing a sophisticated cognitive memory layer.
+
+### 🎬 Comparative Demo
+[![Watch the Demo](https://img.youtube.com/vi/e0uITdv5xlc/maxresdefault.jpg)](https://www.youtube.com/watch?v=e0uITdv5xlc)
+
+| Feature | ChatGPT (5.2 thinking) | ChatGPT + Ontbo API |
+| :--- | :--- | :--- |
+| **Context Retention** | Limited / "Forgetful" | **Persistent & Cognitive** |
+| **Retrieval Accuracy** | Basic RAG (Messy) | **Specialized Memory Layer** |
+| **Logic Consistency** | Dribbles over long sessions | **Maintains High-Fidelity Logic** |
+
+> **Key Takeaway:** While standard models struggle with "duct-taped" prompt engineering, Ontbo ensures your agent actually *understands* the historical context of the conversation.
+
 
 <img width="3509" height="2481" alt="Benchmark Ontbo_2026" src="https://github.com/user-attachments/assets/27301fb8-7834-4dba-af52-098824243db5" />
  <p> This is not merely another vendor-biased benchmark. This performance analysis, comparing ChatGPT 5.2 without Ontbo API and ChatGPT 5.2 with Ontbo API, follows a rigorous methodology formally validated by the Cambridge University Scientific Board in December 2025. Based on 19 items (demographics, cognition, health, finances…).
@@ -182,6 +174,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
