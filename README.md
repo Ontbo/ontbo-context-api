@@ -6,7 +6,7 @@
 <body>
   <img src="./static/banner.png"></img>
 
-  <h1>🛸 ONTBO - Cognitive Context API for AI Agents</h1>
+  <h1> ONTBO 🧠 The Long-Term Memory Layer for AI Agents </h1>
 
   <p align="center"><strong>Make AIs understand your users.</strong></p>
   <p align="center">👉 Cognitive Context API for your AI Agents</p>
@@ -20,6 +20,34 @@
 
 Ontbo is a user context layer for you AI systems. It ingests conversations history and maintains a live user profile.
 Your agent queries for relevant information about the user for highly relevant answers.
+
+---
+
+## ⚡️ Performance Showcase: Vanilla ChatGPT vs. Ontbo API
+
+Context fragmentation is the silent killer of AI efficiency. See how Ontbo transforms a standard LLM interaction by providing a sophisticated cognitive memory layer.
+
+### 🎬 Comparative Demo
+[![Watch the Demo](https://img.youtube.com/vi/e0uITdv5xlc/maxresdefault.jpg)](https://www.youtube.com/watch?v=e0uITdv5xlc)
+
+| Feature | Standard ChatGPT (Vanilla) | ChatGPT + Ontbo API |
+| :--- | :--- | :--- |
+| **Context Retention** | Limited / "Forgetful" | **Persistent & Cognitive** |
+| **Retrieval Accuracy** | Basic RAG (Messy) | **Specialized Memory Layer** |
+| **Logic Consistency** | Dribbles over long sessions | **Maintains High-Fidelity Logic** |
+
+> **Key Takeaway:** While standard models struggle with "duct-taped" prompt engineering, Ontbo ensures your agent actually *understands* the historical context of the conversation.
+
+
+<h2> Why Ontbo? </h2>
+The biggest bottleneck for AI agents isn't the model. It's the **context**. 
+Stop duct-taping prompt engineering and messy RAG pipelines. Ontbo provides a specialized **Cognitive Context API** that acts as a sophisticated memory layer for your LLMs.
+
+📉 Cut Token Waste: Don't resend the same facts. Ontbo optimizes what goes into the prompt.
+🚫 Kill Hallucinations: Ground your agent with verified, retrieved facts in real-time.
+🧠 Human-like Memory: Manage complex user histories and cross-session knowledge effortlessly.
+⚡ Dev-First: Integrates with your existing stack in minutes.
+
 
 <h2>🚀 Get started (seriously, 5 min)</h2>
 
@@ -122,6 +150,9 @@ print(profile.query_facts("What the user's name?"))
     </ul>
   </div>
 
+<img width="3509" height="2481" alt="Benchmark Ontbo_2026" src="https://github.com/user-attachments/assets/27301fb8-7834-4dba-af52-098824243db5" />
+ <p> This is not merely another vendor-biased benchmark. This performance analysis, comparing Ontbo vs. ChatGPT 5.2, follows a rigorous methodology formally validated by the Cambridge University Scientific Board in December 2025. Our objective is transparency, not marketing. <p>
+
   <div>
     <h2>📚 Documentation &amp; Support</h2>
     <ul>
@@ -145,6 +176,7 @@ print(profile.query_facts("What the user's name?"))
 
 </body>
 </html>
+
 
 
 
