@@ -38,7 +38,6 @@ If your assistants hallucinate, token bills spike, and user context lives in 12 
       <li><strong>Healthcare</strong> → not raw data. Connect all the dots for reliable patient profiles → safer adaptive care</li>
       <li><strong>Developer &amp; Creator Copilots</strong> → not autocomplete. Repo + workflow intelligence that guides the next move</li>
     </ul>
-    <p>🤖 <a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
   </div>
 
 
@@ -173,6 +172,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
