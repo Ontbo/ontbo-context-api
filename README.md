@@ -30,7 +30,7 @@ Context fragmentation is the silent killer of AI efficiency. See how Ontbo trans
 ### 🎬 Comparative Demo
 [![Watch the Demo](https://img.youtube.com/vi/e0uITdv5xlc/maxresdefault.jpg)](https://www.youtube.com/watch?v=e0uITdv5xlc)
 
-| Feature | Standard ChatGPT (Vanilla) | ChatGPT + Ontbo API |
+| Feature | Standard ChatGPT (5.2 thinking) | ChatGPT + Ontbo API |
 | :--- | :--- | :--- |
 | **Context Retention** | Limited / "Forgetful" | **Persistent & Cognitive** |
 | **Retrieval Accuracy** | Basic RAG (Messy) | **Specialized Memory Layer** |
@@ -176,6 +176,7 @@ print(profile.query_facts("What the user's name?"))
 
 </body>
 </html>
+
 
 
 
