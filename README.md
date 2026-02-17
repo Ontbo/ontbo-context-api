@@ -9,7 +9,7 @@
   <p align="center">Enjoying ONTBO? ⭐️ us to support the project!</p>
 
   <div>
-<h2> Introduction </h2>
+    <h2>🔥 Introduction </h2>
 
 Ontbo is a user context layer for you AI systems. It ingests conversations history and maintains a live user profile.
 Your agent queries for relevant information about the user for highly relevant answers.
@@ -172,6 +172,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
