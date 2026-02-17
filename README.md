@@ -16,7 +16,7 @@ Ontbo is a user context layer for you AI systems. It ingests conversations histo
 Your agent queries for relevant information about the user for highly relevant answers.
 If your assistants hallucinate, token bills spike, and user context lives in 12 different silos – <strong>ONTBO fixes that.</strong></p>
     <p>Plug a <b>cognitive layer</b> in front of your LLMs/Agents and stop duct-taping prompt engineering.<br>
-    Your agents become sharper, faster, and cheaper.</p>
+    Your agents become sharper.</p>
     <p><strong>Memory stores. Context understands.</strong></p>
   </div>
 
@@ -174,6 +174,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
