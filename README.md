@@ -10,7 +10,7 @@
   <p align="center">Enjoying ONTBO? ⭐️ us to support the project!</p>
 
   <div>
-    <h2> Introduction </h2>
+    <h1> Introduction </h1>
 
 Ontbo API provides a cognitive context layer for AI agents.
 It adds long-term memory, persistent context, and reasoning-driven retrieval, enabling AI systems to deliver highly relevant answers and remain consistent over time.
@@ -175,6 +175,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
