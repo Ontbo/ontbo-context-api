@@ -6,6 +6,7 @@
   <p align="center">🌐 Homepage:<a href="https://www.ontbo.com">https://www.ontbo.com</a></p>
   <p align="center">🤖 Developper hub:<a href="https://api.ontbo.com">https://api.ontbo.com</a></p>
   <p align="center">📄 Datasheet: <a href="./static/datasheet.pdf">here</a></p>
+  <p align="center">💻 Read the full paper:<a href="https://link.springer.com/chapter/10.1007/978-3-032-11442-6_30</a></p>
   <p align="center">Enjoying ONTBO? ⭐️ us to support the project!</p>
 
   <div>
@@ -174,6 +175,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
