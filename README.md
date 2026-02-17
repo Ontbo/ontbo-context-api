@@ -1,6 +1,8 @@
 
 ![header Ontbo](https://github.com/user-attachments/assets/780ad7c3-2e95-41a7-8459-7cfdd2ce2504)
 
+[![Discord](https://img.shields.io/badge/Discord-Join%20Us-purple?style=for-the-badge&logo=discord)] (https://discord.com/invite/N8h4ZBJb)
+
   <h1> ONTBO 🧠 The Memory and Context Layer for AI Agents </h1>
 
   <p align="center"><strong>Make AIs understand your users.</strong></p>
@@ -147,7 +149,11 @@ print(profile.query_facts("What the user's name?"))
   </div>
 
 <img width="3509" height="2481" alt="Benchmark Ontbo_2026" src="https://github.com/user-attachments/assets/27301fb8-7834-4dba-af52-098824243db5" />
- <p> This is not merely another vendor-biased benchmark. This performance analysis, comparing Ontbo vs. ChatGPT 5.2, follows a rigorous methodology formally validated by the Cambridge University Scientific Board in December 2025. Our objective is transparency, not marketing. <p>
+ <p> This is not merely another vendor-biased benchmark. This performance analysis, comparing ChatGPT 5.2 without Ontbo API and ChatGPT 5.2 with Ontbo API, follows a rigorous methodology formally validated by the Cambridge University Scientific Board in December 2025. Based on 19 items (demographics, cognition, health, finances…).
+Performance was measured across more than 500 multi-turn conversations, comparing intrinsic hashtag#LLM memory with an external conversational memory layer.
+
+➡️ This benchmark shows what happens when an external cognitive context layer works alongside leading models, with long-term reasoning reaching up to 93% recall accuracy. 
+➡️ It’s not a RAG, not memory tools, not a buffer. <p>
 
   <div>
     <h2>📚 Documentation &amp; Support</h2>
@@ -176,6 +182,7 @@ print(profile.query_facts("What the user's name?"))
 
 </body>
 </html>
+
 
 
 
