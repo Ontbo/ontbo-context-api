@@ -30,7 +30,7 @@ Context fragmentation is the silent killer of AI efficiency. See how Ontbo trans
 ### 🎬 Comparative Demo
 [![Watch the Demo](https://img.youtube.com/vi/e0uITdv5xlc/maxresdefault.jpg)](https://www.youtube.com/watch?v=e0uITdv5xlc)
 
-| Feature | Standard ChatGPT (5.2 thinking) | ChatGPT + Ontbo API |
+| Feature | ChatGPT (5.2 thinking) | ChatGPT + Ontbo API |
 | :--- | :--- | :--- |
 | **Context Retention** | Limited / "Forgetful" | **Persistent & Cognitive** |
 | **Retrieval Accuracy** | Basic RAG (Messy) | **Specialized Memory Layer** |
@@ -39,14 +39,15 @@ Context fragmentation is the silent killer of AI efficiency. See how Ontbo trans
 > **Key Takeaway:** While standard models struggle with "duct-taped" prompt engineering, Ontbo ensures your agent actually *understands* the historical context of the conversation.
 
 
-<h2> Why Ontbo? </h2>
-The biggest bottleneck for AI agents isn't the model. It's the **context**. 
+<h2> 🚀 Why Ontbo? </h2>
+
+The biggest bottleneck for AI agents isn't the model—it's the **context**. 
 Stop duct-taping prompt engineering and messy RAG pipelines. Ontbo provides a specialized **Cognitive Context API** that acts as a sophisticated memory layer for your LLMs.
 
-📉 Cut Token Waste: Don't resend the same facts. Ontbo optimizes what goes into the prompt.
-🚫 Kill Hallucinations: Ground your agent with verified, retrieved facts in real-time.
-🧠 Human-like Memory: Manage complex user histories and cross-session knowledge effortlessly.
-⚡ Dev-First: Integrates with your existing stack in minutes.
+* **📉 Cut Token Waste:** Don't resend the same facts. Ontbo optimizes what goes into the prompt.
+* **🚫 Kill Hallucinations:** Ground your agent with verified, retrieved facts in real-time.
+* **🧠 Human-like Memory:** Manage complex user histories and cross-session knowledge effortlessly.
+* **⚡ Dev-First:** Integrates with your existing stack in minutes.
 
 
 <h2>🚀 Get started (seriously, 5 min)</h2>
@@ -174,8 +175,13 @@ print(profile.query_facts("What the user's name?"))
   <br><p>✨ Let’s build something people didn’t think was possible.<br>
   🔥 Go break things (and tell us what you build).</p>
 
+
+<b>If you find this useful, please give us a ⭐ to help others find us!</b>
+</p>
+
 </body>
 </html>
+
 
 
 
