@@ -24,7 +24,7 @@ Ontbo API plugs into any LLM stack and helps teams build reliable, scalable AI s
 
 
   <div>
-    <h2>🧩 Main Features</h2>
+    <h3>🧩 Main Features</h3>
     <ul>
       <li><strong>Context Layer</strong> → multi-agent, reasoning-based retrieval that packs only the facts that matter</li>
       <li><strong>Lifecycle Management</strong> → facts are versioned, updated, and conflict-resolved automatically</li>
@@ -175,6 +175,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
