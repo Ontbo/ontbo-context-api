@@ -15,7 +15,7 @@ Ontbo API provides a cognitive context layer for AI agents.
 It adds long-term memory, persistent context, and reasoning-driven retrieval, enabling AI systems to deliver highly relevant answers and remain consistent over time.
 Ontbo API plugs into any LLM stack and helps teams build reliable, scalable AI systems.
 
- <p> If your assistants hallucinate, token bills spike, and user context lives in 12 different silos – <strong>ONTBO fixes that.</strong></p>
+ <p> If your assistants hallucinate, token bills spike, and user context lives in 12 different silos – <strong>ONTBO fixes that🔥.</strong></p>
     <p>Plug a <b>cognitive layer</b> in front of your LLMs/Agents and stop duct-taping prompt engineering.<br>
     Your agents become sharper.</p>
     <p><strong>Memory stores. Context understands.</strong></p>
@@ -174,6 +174,7 @@ Performance was measured across more than 500 multi-turn conversations, comparin
 
 </body>
 </html>
+
 
 
 
