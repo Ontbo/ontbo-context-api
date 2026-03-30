@@ -152,12 +152,12 @@ class Scene:
         Returns:
             str: The ID of the newly added message batch.
         """
-        text_data = json.dumps([message.as_dict for message in messages])
+        text_data = [message.as_dict for message in messages]
 
         response = requests.post(
             urljoin(self._server.url,
                     f"profiles/{self._profile_id}/scenes/{self._id}/text"),
-            data=text_data,
+            json=text_data,
             params={
                 "update_now": update_now
             },
